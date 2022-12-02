@@ -12,14 +12,13 @@ add_executable("${PROJECT_NAME}" "Main.cpp")
 set(SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
 
 #look for SFML and add it
-find_package (SFML 2.5.1 REQUIRED system window graphics network audio)
+find_package (SFML REQUIRED system window graphics network audio)
 
-target_link_libraries(Polymorphism PRIVATE sfml-audio sfml-graphics sfml-network sfml-system)
-
+target_link_libraries("${PROJECT_NAME}" PRIVATE sfml-audio sfml-graphics sfml-network sfml-system)
 
 #include_directories(${SFML_INCLUDE_DIR})
 
-install(TARGETS "${PROJECT_NAME}" DESTINATION bin) #${CMAKE_INSTALL_PREFIX}/bin
+install(TARGETS Polymorphism DESTINATION bin) #${CMAKE_INSTALL_PREFIX}/bin
 install(FILES "Main.cpp" DESTINATION src)
 
 # Group into "Source Files" and "Header Files"
@@ -32,3 +31,7 @@ install(FILES "Main.cpp" DESTINATION src)
 	
 set(CMAKE_SUPPRESS_REGENERATION true)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+   COMMAND copyFile.bat
+)
