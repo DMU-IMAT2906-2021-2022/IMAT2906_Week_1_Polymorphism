@@ -312,6 +312,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\jshell00\Documents\GitHub\IMAT2906_Week_1_Polymorphism\Main.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h" />

@@ -5,6 +5,7 @@
 #include "./build/GameObject.h"
 #include "./build/GoodPlayer.h"
 
+/*
 int main()
 {
 	sf::Window window(sf::VideoMode(800, 600), "My window");
@@ -15,3 +16,4 @@ int main()
 	system("pause");
 	return 0;
 };
+*/

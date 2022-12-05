@@ -14,7 +14,7 @@ public:
 	//Overloading the GoodPlayer class.
 	GoodPlayer(float f_SpeedIn, float f_ResistanceIn) {
 
-		go = new GameObject();
+		//go = new GameObject();
 		go->setSpeed(f_SpeedIn);
 		go->setResistance(f_ResistanceIn);
 	};

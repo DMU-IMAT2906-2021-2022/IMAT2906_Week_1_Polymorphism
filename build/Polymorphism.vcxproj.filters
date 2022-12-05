@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\jshell00\Documents\GitHub\IMAT2906_Week_1_Polymorphism\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
