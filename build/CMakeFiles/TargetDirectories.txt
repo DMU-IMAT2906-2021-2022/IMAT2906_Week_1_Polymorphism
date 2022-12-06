@@ -1,3 +1,0 @@
-C:/Users/jshell00/Documents/GitHub/IMAT2906_Week_1_Polymorphism/build/CMakeFiles/Polymorphism.dir
-C:/Users/jshell00/Documents/GitHub/IMAT2906_Week_1_Polymorphism/build/CMakeFiles/INSTALL.dir
-C:/Users/jshell00/Documents/GitHub/IMAT2906_Week_1_Polymorphism/build/CMakeFiles/ALL_BUILD.dir

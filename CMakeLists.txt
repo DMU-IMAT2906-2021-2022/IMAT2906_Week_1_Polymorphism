@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION "3.19.0")
+cmake_minimum_required(VERSION "3.14.0")
 
 project("Polymorphism")
 
@@ -32,6 +32,3 @@ install(FILES "Main.cpp" DESTINATION src)
 set(CMAKE_SUPPRESS_REGENERATION true)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-   COMMAND copyFile.bat
-)

@@ -10,24 +10,11 @@ sf::Vector2f v2fMove(0.0f, 0.0f);
 
 int main()
 {
-	struct
-	{
-		float topLeft;
-		float bottomRight;
-		float width;
-		float height;
-	}spriteLocation;
-
 
 	sf::RenderWindow window(sf::VideoMode(1540, 900, 32), "Lab Week 1 - Polymorphism"); //Draw an SFML window.
-	sf::Texture texture;
-	sf::Sprite sprite;
-
-	//Construct the sprite 
-	spriteLocation.topLeft = 0.f;
-	spriteLocation.bottomRight = 100.f;
-	spriteLocation.width = 100.f;
-	spriteLocation.height = 100.f;
+	sf::Texture playerTexture,turretTexture;
+	sf::Sprite playerSprite, turretSprite;
+	
 
 	const float f_FPS = 60.0f; //The desired FPS. (The number of updates each second).
 	bool b_redraw = true;      //Do I redraw everything on the screen?
@@ -35,25 +22,33 @@ int main()
 	window.setFramerateLimit(f_FPS);
 	sf::Clock clock;
 
-	if (!texture.loadFromFile("Spaceship_01_BLUE.png", sf::IntRect(0, 0, 500, 500)))
+	if (!playerTexture.loadFromFile("tankBlue.png"))
 	{
-		std::cout << "No ship found" << std::endl;
+		std::cout << "No files." << std::endl;
 	}
-	else if (texture.loadFromFile("Spaceship_01_BLUE.png", sf::IntRect(0, 0, 500, 500))) {
+	else if (playerTexture.loadFromFile("tankBlue.png")) {
+		turretTexture.loadFromFile("tankBlue_barrel.png");
 	}
 
-	sprite.setOrigin(sf::Vector2f(250.f, 250.f));
+	//Origin of the sprite, position on the screen and initial rotation.
+	playerSprite.setOrigin(sf::Vector2f(250.f, 250.f));
+	playerSprite.setPosition(sf::Vector2f(500.f, 500.f));
+	turretSprite.setOrigin(sf::Vector2f(4.f, 0.f));
+	turretSprite.setPosition(250.f+21.f,250.f+21.f);
 
-	//sprite.setTextureRect(sf::IntRect(spriteLocation.topLeft, spriteLocation.bottomRight, spriteLocation.width, spriteLocation.height));//Set the initial position of the sprite.
+	//Set the texture of the sprite.
+	turretSprite.setTexture(turretTexture);
+	playerSprite.setTexture(playerTexture);
 
 	while (window.isOpen())
 	{
 		//Wait until 1/60th of a second has passed, then update everything.
 		if (clock.getElapsedTime().asSeconds() >= 1.0f / f_FPS)
 		{
+			std::cout << v2fMove.y << std::endl;
 			b_redraw = true; //We're ready to redraw everything
 			clock.restart();
-			sprite.move(v2fMove);
+
 		}
 		//Check if the window is open or closed.
 		sf::Event event;
@@ -69,21 +64,22 @@ int main()
 			{
 				if (event.key.code == sf::Keyboard::W)
 				{
-					v2fMove = sf::Vector2f(0.0f, -1.f);
+					playerSprite.move(sf::Vector2f(0, -1.f));
+					turretSprite.move(sf::Vector2f(0, -1.f));
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
-					v2fMove = sf::Vector2f(0.0f, 1.f);
+					playerSprite.move(sf::Vector2f(0, 1.f));
+					turretSprite.move(sf::Vector2f(0, 1.f));
 				}
 				if (event.key.code == sf::Keyboard::A)
 				{
-					sprite.rotate(1.f);
+					turretSprite.rotate(1.f);
 				}
 				if (event.key.code == sf::Keyboard::D)
 				{
-					sprite.rotate(-1.f);					
+					turretSprite.rotate(-1.f);					
 				}
-
 			}
 		}
 
@@ -94,10 +90,8 @@ int main()
 			window.clear();
 
 			//Draw the sprite
-			//sprite.setTexture(texture);
-			sprite.setScale(sf::Vector2f(0.25f, 0.25f));
-			sprite.setTexture(texture);
-			window.draw(sprite);
+			window.draw(playerSprite);
+			window.draw(turretSprite);
 			window.display();
 		}
 	}
