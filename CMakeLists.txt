@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 #find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
-add_executable("${PROJECT_NAME}" "Main.cpp")
+add_executable("${PROJECT_NAME}" "Source.cpp" "GameObject.h" "GameObject.cpp")
 
 set(SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
 
@@ -19,7 +19,7 @@ target_link_libraries("${PROJECT_NAME}" PRIVATE sfml-audio sfml-graphics sfml-ne
 #include_directories(${SFML_INCLUDE_DIR})
 
 install(TARGETS Polymorphism DESTINATION bin) #${CMAKE_INSTALL_PREFIX}/bin
-install(FILES "Main.cpp" DESTINATION src)
+install(FILES "Source.cpp" "GoodPlayer.h" DESTINATION src)
 
 # Group into "Source Files" and "Header Files"
     if ("${FILE}" MATCHES ".*\\.cpp")
