@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "build/GameObject.h"
+#include "GameObject.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
