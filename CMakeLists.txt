@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 #find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
-add_executable("${PROJECT_NAME}" "Source.cpp")
+add_executable("${PROJECT_NAME}" "Source.cpp" "GameObject.h" "GameObject.cpp")
 
 set(SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
 
